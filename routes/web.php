@@ -16,6 +16,18 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/keluar', [AuthController::class, 'logout'])->name('logout');
     Route::view('/dashboard', 'dashboard')->name('dashboard');
+
+    // ---- Halaman sementara: dihapus satu per satu saat fiturnya dibangun ----
+    Route::view('/transaksi', 'placeholder', ['title' => 'Transaksi'])->name('transactions.index');
+    Route::view('/transaksi/tambah', 'placeholder', ['title' => 'Tambah Transaksi'])->name('transactions.create');
+    Route::view('/dompet', 'placeholder', ['title' => 'Dompet'])->name('wallets.index');
+    Route::view('/kategori', 'placeholder', ['title' => 'Kategori'])->name('categories.index');
+    Route::view('/anggaran', 'placeholder', ['title' => 'Anggaran'])->name('budgets.index');
+    Route::view('/target', 'placeholder', ['title' => 'Target Tabungan'])->name('goals.index');
+    Route::view('/tagihan', 'placeholder', ['title' => 'Tagihan'])->name('bills.index');
+    Route::view('/utang', 'placeholder', ['title' => 'Utang & Piutang'])->name('debts.index');
+    Route::view('/laporan', 'placeholder', ['title' => 'Laporan'])->name('reports.index');
+    Route::view('/profil', 'placeholder', ['title' => 'Profil'])->name('profile.edit');
 });
 
 if (app()->isLocal()) {

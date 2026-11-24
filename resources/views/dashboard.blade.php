@@ -1,16 +1,9 @@
-<x-layouts.base title="Dashboard">
-    <main class="mx-auto max-w-3xl px-5 py-10">
-        <div class="flex items-center justify-between">
-            <h1 class="font-display text-3xl tracking-tight">
-                Halo, {{ Str::before(auth()->user()->name, ' ') }}
-            </h1>
+<x-layouts.app title="Beranda">
+    <x-page-header :title="'Halo, ' . Str::before(auth()->user()->name, ' ')"
+                   subtitle="Ringkasan keuanganmu akan tampil di sini." />
 
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button class="btn-ghost">Keluar</button>
-            </form>
-        </div>
-
-        <p class="mt-2 text-muted">Dashboard akan dibangun di tahap berikutnya.</p>
-    </main>
-</x-layouts.base>
+    <div class="card grid place-items-center px-6 py-16 text-center">
+        <p class="font-display text-xl">Dashboard sedang disiapkan</p>
+        <p class="mt-1 max-w-xs text-sm text-muted">Kita isi setelah dompet dan transaksi selesai dibuat.</p>
+    </div>
+</x-layouts.app>

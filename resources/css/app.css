@@ -70,6 +70,7 @@
     html { color-scheme: light; }
     html.dark { color-scheme: dark; }
     body { @apply bg-canvas text-ink font-sans antialiased; }
+    [x-cloak] { display: none !important; }
 }
 
 @layer components {
