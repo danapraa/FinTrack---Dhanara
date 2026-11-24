@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/dashboard');
@@ -17,10 +18,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/keluar', [AuthController::class, 'logout'])->name('logout');
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
+    Route::resource('dompet', WalletController::class)
+        ->except('show')
+        ->parameters(['dompet' => 'wallet'])
+        ->names('wallets');
+
     // ---- Halaman sementara: dihapus satu per satu saat fiturnya dibangun ----
     Route::view('/transaksi', 'placeholder', ['title' => 'Transaksi'])->name('transactions.index');
     Route::view('/transaksi/tambah', 'placeholder', ['title' => 'Tambah Transaksi'])->name('transactions.create');
-    Route::view('/dompet', 'placeholder', ['title' => 'Dompet'])->name('wallets.index');
     Route::view('/kategori', 'placeholder', ['title' => 'Kategori'])->name('categories.index');
     Route::view('/anggaran', 'placeholder', ['title' => 'Anggaran'])->name('budgets.index');
     Route::view('/target', 'placeholder', ['title' => 'Target Tabungan'])->name('goals.index');

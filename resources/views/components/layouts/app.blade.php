@@ -1,5 +1,6 @@
 <x-layouts.base :title="$title ?? null">
     <div class="min-h-dvh" x-data="theme">
+        <x-flash />
         <x-nav.sidebar />
 
         <div class="lg:pl-64">
